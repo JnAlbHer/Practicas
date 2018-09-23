@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js"></script>
+	<title></title>
+</head>
+<body>
+		<div id="app">
+			<h5>Tareas Hechas</h5>
+			<table>
+				<tr v-for="(task,index) in done" @click="toggleStatus(task)">
+					<td v-text="index"></td>
+					<td v-text="task.task"></td>
+					<td v-text="task.when"></td>
+					<td v-text="task.status"></td>
+					<td><button @click="eliminateTask" onclick='alert("Elemento borrado")'>X</button></td>
+				</tr>
+			</table>
+			<h5>Tareas por hacer</h5>
+			<table>
+				<tr v-for="(task,index) in duties" @click="toggleStatus(task)">
+					<td v-text="index"></td>
+					<td v-text="task.task"></td>
+					<td v-text="task.when"></td>
+					<td v-text="task.status"></td>
+					<td><button @click="eliminateTask" onclick='alert("Elemento borrado")'>X</button></td>
+				</tr>
+			</table>
+			<h5>Modificaciones</h5>
+			<input type="text" v-model="newTask" placeholder="Agregar tarea">
+			<input type="text" v-model="newWhen" placeholder="Agregar cuando">
+			<button @click="addNewTask" onclick='alert("Elemento Agregado")'>Agregar</button><br>
+		</div>
+		
+		<script src="index.js"></script>
+</body>
+</html>
